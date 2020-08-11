@@ -86,7 +86,15 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
-  }
+  },
+  {
+    title: 'Tommy Needs More Sleep',
+    date: 'August 11th, 2020',
+    firstParagraph: `Today is my Mother's Birthday, but she passed away in March. `,
+
+    secondParagraph: `I'm dedicating all of my Lambda achievements to my Mother, Love you Mama.`,
+
+    thirdParagraph: `No Good Dead goes un-punished lol 😂`}
 ];
 
 /*
@@ -123,5 +131,35 @@ function articleMaker(title, date, firstParagraph, secondParagraph, thirdParagra
   const paragraphTwo = document.createElement('p');
   const paragraphThree = document.createElement('p');
   const expandButton = document.createElement('span');
+  article.appendChild(articleTitle);
+  article.appendChild(articleDate);
+  article.appendChild(paragraphOne);
+  article.appendChild(paragraphTwo);
+  article.appendChild(paragraphThree);
+  article.appendChild(expandButton);
 
+  article.classList.add('article');
+  articleDate.classList.add('date');
+  expandButton.classList.add('expandButton');
+
+  article.addEventListener('click', () => {
+    article.classList.toggle('article-open');
+  });
+
+  articleTitle.textContent = title;
+  articleDate.textContent = date;
+  paragraphOne.textContent = firstParagraph;
+  paragraphTwo.textContent = secondParagraph;
+  paragraphThree.textContent = thirdParagraph;
+  expandButton.textContent = 'Read More';
+
+  return article;
 };
+
+const parentComponent = document.querySelector('.articles');
+data.forEach(data => {
+  const newArticle = articleMaker(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph);
+  parentComponent.appendChild(newArticle);
+}) ;
+
+
