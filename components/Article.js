@@ -94,7 +94,7 @@ const data = [
 
     secondParagraph: `I'm dedicating all of my Lambda achievements to my Mother, Love you Mama.`,
 
-    thirdParagraph: `No Good Dead goes un-punished lol 😂`}
+    thirdParagraph: `No Good Deed goes un-punished lol 😂`}
 ];
 
 /*
